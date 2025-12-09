@@ -39,16 +39,16 @@ export default function App() {
       </div>
 
       <Canvas dpr={[1, 2]} gl={{ antialias: false }}> 
-{/* 删掉了 toneMapping，回归自然亮度 */}
-
         <PerspectiveCamera makeDefault position={[0, 4, 20]} fov={50} />
         <CameraRig />
         
-        {/* 环境与灯光 */}
-        <color attach="background" args={['#021008']} /> 
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 20, 10]} angle={0.3} penumbra={1} intensity={2} color="#D4AF37" castShadow />
-        <pointLight position={[-10, 5, -10]} intensity={2} color="#00ff88" />
+        {/* 【修改点 1】背景改成纯黑，突出金属感 */}
+        <color attach="background" args={['#010101']} /> 
+        
+        {/* 【修改点 2】灯光大换血：增强反射，加入红光 */}
+        <ambientLight intensity={0.2} /> {/* 环境光暗一点 */}
+        <spotLight position={[10, 20, 10]} angle={0.3} penumbra={1} intensity={5} color="#fff" castShadow />
+        <pointLight position={[-10, 5, -10]} intensity={5} color="#ff0000" /> {/* 侧面红光补光 */}
         
         <Environment preset="lobby" background={false} blur={1} />
 
@@ -69,17 +69,16 @@ export default function App() {
           </group>
         </Suspense>
 
-                <EffectComposer disableNormalPass>
-        <Bloom 
-  luminanceThreshold={1.2} // 调高到 1.2，只有极亮的地方才发光，普通树叶不发光
-  mipmapBlur 
-  intensity={0.4}          // 强度再低一点
-  radius={0.6}
-/>
-
+        <EffectComposer disableNormalPass>
+          {/* 【修改点 3】Bloom 微调：让高光更集中 */}
+          <Bloom 
+            luminanceThreshold={1} 
+            mipmapBlur 
+            intensity={0.6}
+            radius={0.4}
+          />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
-
       </Canvas>
     </div>
   );

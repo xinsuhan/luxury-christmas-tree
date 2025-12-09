@@ -55,18 +55,17 @@ export const Polaroids = () => {
   });
 
   return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, COUNT]}>
-      <planeGeometry args={[1.2, 1.5]} />
-            <meshStandardMaterial 
+    <instancedMesh ref={meshRef} args={[undefined, undefined, COUNT]} castShadow receiveShadow>
+      {/* 【关键修改】把 planeGeometry 改成 boxGeometry， args 里加了厚度 0.05 */}
+      <boxGeometry args={[1.2, 1.5, 0.05]} /> 
+      
+      <meshStandardMaterial 
         color="#ffffff" 
-        emissive="#ffd700" 
-        emissiveIntensity={0.5}
-        roughness={0.1} 
-        metalness={0.8}
-        side={THREE.DoubleSide}
+        emissive="#fff" 
+        emissiveIntensity={0.2} // 稍微亮一点，看得清
+        roughness={0.2} 
+        metalness={0.1}
       />
-
-
     </instancedMesh>
   );
 };
