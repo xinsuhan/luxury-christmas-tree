@@ -67,15 +67,16 @@ export default function App() {
           </group>
         </Suspense>
 
-        <EffectComposer disableNormalPass>
+                <EffectComposer disableNormalPass>
           <Bloom 
-            luminanceThreshold={0.8} 
+            luminanceThreshold={0.9} // 只有极亮的地方才发光
             mipmapBlur 
-            intensity={1.2} 
-            radius={0.4}
+            intensity={0.5}          // 【关键】强度从 1.2 降到 0.5，拒绝核爆
+            radius={0.6}
           />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
+
       </Canvas>
     </div>
   );
