@@ -57,12 +57,15 @@ export const Polaroids = () => {
   return (
     <instancedMesh ref={meshRef} args={[undefined, undefined, COUNT]}>
       <planeGeometry args={[1.2, 1.5]} />
-        <meshStandardMaterial 
-        color="#111" // 改成黑色，更有质感
-        roughness={0.2} 
-        metalness={0.5}
+            <meshStandardMaterial 
+        color="#ffffff" 
+        emissive="#ffd700" 
+        emissiveIntensity={0.5}
+        roughness={0.1} 
+        metalness={0.8}
         side={THREE.DoubleSide}
       />
+
 
     </instancedMesh>
   );

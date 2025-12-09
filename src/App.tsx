@@ -38,7 +38,9 @@ export default function App() {
         <p className="text-xl tracking-[0.5em] text-emerald-400 mt-2">CHRISTMAS EXPERIENCE</p>
       </div>
 
-      <Canvas dpr={[1, 2]} gl={{ antialias: false, toneMapping: THREE.ACESFilmicToneMapping }}>
+      <Canvas dpr={[1, 2]} gl={{ antialias: false }}> 
+{/* 删掉了 toneMapping，回归自然亮度 */}
+
         <PerspectiveCamera makeDefault position={[0, 4, 20]} fov={50} />
         <CameraRig />
         
