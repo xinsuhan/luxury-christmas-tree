@@ -9,11 +9,16 @@ const COUNT = 30; // 减少数量，提升质量
 // 这里用几个在线图片做演示，你可以换成你自己的图片URL
 // 如果你有本地图片，放在 public/ 文件夹下，然后写 './my-photo.jpg'
 const IMAGE_URLS = [
-  'https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=400&q=80', // 狗狗
-  'https://images.unsplash.com/photo-1596727147705-54a9d0c2067d?w=400&q=80', // 圣诞
-  'https://images.unsplash.com/photo-1513297887119-d46091b24bfa?w=400&q=80', // 圣诞树
-  'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=400&q=80', // 快乐
+  '/1.jpg',
+  '/2.jpg',
+   '/3.jpg',
+   '/4.jpg',
+   '/5.jpg',
+   '/6.jpg',
+   '/7.jpg',
+  // ...
 ];
+
 
 export const Polaroids = () => {
   const groupRef = useRef<THREE.Group>(null);
