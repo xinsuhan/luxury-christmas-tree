@@ -40,7 +40,8 @@ export const LuxuryShaderMaterial = shaderMaterial(
       gl_Position = projectionMatrix * mvPosition;
       
       // 【关键修改】把 300.0 改成 1200.0，粒子放大4倍，手机上看才清楚！
-      gl_PointSize = aSize * (1200.0 / -mvPosition.z); 
+      gl_PointSize = aSize * (400.0 / -mvPosition.z); 
+
       vDepth = -mvPosition.z;
     }
   `,

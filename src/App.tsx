@@ -68,12 +68,13 @@ export default function App() {
         </Suspense>
 
                 <EffectComposer disableNormalPass>
-          <Bloom 
-            luminanceThreshold={0.9} // 只有极亮的地方才发光
-            mipmapBlur 
-            intensity={0.5}          // 【关键】强度从 1.2 降到 0.5，拒绝核爆
-            radius={0.6}
-          />
+        <Bloom 
+  luminanceThreshold={1.2} // 调高到 1.2，只有极亮的地方才发光，普通树叶不发光
+  mipmapBlur 
+  intensity={0.4}          // 强度再低一点
+  radius={0.6}
+/>
+
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
 
